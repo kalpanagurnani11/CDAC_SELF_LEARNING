@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script>
+            function change(){
+            document.getElementById('p1').innerHTML="hiii"
+            let v=document.getElementById('p1');
+            v.style.color="red"
+            v.style.fontSize=30
+            }
+            function hide()
+            {
+             let v=document.getElementById('p1');
+             v.style.display="none"   
+
+            }
+               function show()
+            {
+             let v=document.getElementById('p1');
+             v.style.display="block"   
+
+            }
+            count=0;
+             function countcli()
+            {
+                count+=1
+             let v=document.getElementById("count").innerHTML=count;
+               
+
+            }
+            function dates()
+            {
+                const d=new Date();
+                document.getElementById("datess").innerHTML=d;
+                alert(d)
+            }
+            
+        </script>
+    </head>
+    <body>
+        <p id="p1" >hello</p>
+        <p>clicks:<a id="count">0</a></p>
+        <p> <a id="datess"> </a></p>
+        <button id="b1" onclick="hide()">hide</button>
+               <button id="b2" onclick="show()">show</button>
+               <button id="b4" onclick="countcli()">count</button>
+             <button id="b3" ondblclick="dates()">date</button>
+
+    </body>
+</html>
