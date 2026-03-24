@@ -2,6 +2,6 @@
 using namespace std;
 int main()
 {
-    int a={1,2,3};
-    cout<<a<<endl;
+    // int a=[1,2,3];
+    // cout<<a<<endl;
 }
