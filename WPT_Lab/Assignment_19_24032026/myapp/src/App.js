@@ -2,12 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import Index from './web/index'
 import Login from './login'
+import Counter from './counter'
 
 function App() {
   return (
     <div className="App">
-      <Login></Login>
+      {/* <Login></Login> */}
       <Index></Index>
+      <Counter></Counter>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

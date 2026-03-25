@@ -1,1 +1,0 @@
-// Create a JSON object, array, and file to store a cricket match (or any team sport) scoreboard.

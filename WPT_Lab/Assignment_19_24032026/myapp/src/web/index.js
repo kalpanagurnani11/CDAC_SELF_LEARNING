@@ -3,6 +3,7 @@ import Home from './home'
 import About from './about'
 import Contact from'./contact'
 import { createContext } from 'react'
+import Info from "./info";
 
 export let ctx='';
 
@@ -22,6 +23,7 @@ export default function Index(props)
     <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/info" element={<Info />} />
         <Route path="/contact" element={<contact user={props.user}/>}/>
         
     </Routes>
@@ -30,6 +32,9 @@ export default function Index(props)
     </li>
     <li>
         <Link to="/about">About us</Link>
+    </li>
+    <li>
+        <NavLink to="/info">Info</NavLink>
     </li>
        <li>
         <Link to="/contact">Contact us</Link>
