@@ -5,12 +5,12 @@ const http = require("http");
 const server = http.createServer((req, res) => {
 
     if (req.method === "GET") {
-        res.write("GET Request Received");
+        res.write("GET Req Received");
         res.end();
     }
 
     if (req.method === "POST") {
-        res.write("POST Request Received");
+        res.write("POST Req Received");
         res.end();
     }
 
