@@ -7,23 +7,31 @@
 
 #include<iostream>
 #include<string.h>
+#include<map>
 using namespace std;
+
 
 int main()
 {
-    char str='GGGG';
-    int len=sizeof(str)/sizeof(char);
-    // cout<<sizeof(str);
+    string str;
+    cin>>str;
+    map<char,int>freq;
 
-//   cout<<len;
-    
-    for(int i=0;i<len;i++)
+    for(char ch:str)
     {
-        
-        if(str[i]==str[i+1])
+        freq[ch]++;
+    }
+    int n=str.length();
+    for(auto i:freq)
+    {
+        if(i.second>(n+1)/2)
         {
-            cout<<"no"<<endl;
-        }
-        
-  }
+            cout<<"no";
+            return 0;
+        }        
+
+    }
+cout<<"yes";
+
+
 }
