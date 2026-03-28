@@ -5,12 +5,16 @@ using namespace std;
 class Date{
     int d;
 public:
-    void set(int x){ d=x; }
+    void set(int x){ 
+        d=x; 
+    }
     Date operator+(int x){
         d+=x;
         return *this;
     }
-    void show(){ cout<<d; }
+    void show(){ 
+        cout<<d; 
+    }
 };
 
 int main(){

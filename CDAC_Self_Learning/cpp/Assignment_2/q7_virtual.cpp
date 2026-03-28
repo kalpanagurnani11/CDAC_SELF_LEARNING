@@ -8,7 +8,9 @@ public:
 
 class I:public P{
 public:
-    void print(){ cout<<"Ink"; }
+    void print(){
+         cout<<"Ink"; 
+        }
 };
 
 int main(){

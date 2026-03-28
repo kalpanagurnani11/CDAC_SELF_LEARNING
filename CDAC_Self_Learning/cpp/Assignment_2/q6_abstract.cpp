@@ -8,7 +8,9 @@ public:
 
 class C:public Shape{
 public:
-    void draw(){ cout<<"Circle"; }
+    void draw(){ 
+        cout<<"Circle";
+     }
 };
 
 int main(){
