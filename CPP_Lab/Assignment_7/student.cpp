@@ -21,11 +21,22 @@ class Student
     {
     cout<<"enter no.of students u want to enter"<<endl;
     cin>>n;
-    for(int i=0;i<n;i++)
+    for(int i=1;i<=n;i++)
     {
         cout<<"enter id and name of student "<<i<<endl;
         cin>>id>>name;
-         m[id]=name;
+        try{
+            if(id <=0)
+            {
+                throw "invalid id";
+            }
+          m[id]=name;  
+        }
+        catch(const char * msg)
+        {
+            cout<<"exception:"<<msg<<endl;
+        }
+         
         // m.insert(pair<int,string>(id,name));
 
     }
@@ -57,20 +68,25 @@ int main()
 {
     Student s1;
     int choice;
+    do{
     cout<<"enter ur choice"<<endl;
     cout<<"1.Add"<<endl;
     cout<<"2.Display"<<endl;
     cout<<"3.Save"<<endl;
     cin>>choice;
-    switch (choice)
+    
+         switch (choice)
     {
     case 1: s1.add(); break;
     case 2:s1.display();break;
     case 3:s1.save();break;
     case 4:break;
-    default:return 0;
+    default:cout<<"invalid choice";
 
     }
+
+    }
+   
     while(choice!=4);
     return 0;
    
