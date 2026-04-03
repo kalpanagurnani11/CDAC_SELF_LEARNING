@@ -11,7 +11,7 @@ public class StudentService {
 	static {
 		sarr=new Student[100];
 		sarr[0]=new Student(11,"abc",67,78,67,new Date());
-		sarr[1]=new Student(11,"pqr",66,77,65,new Date());
+		sarr[1]=new Student(12,"pqr",66,77,65,new Date());
 		count=2;
 	}
 	public static boolean addNewStudent()
