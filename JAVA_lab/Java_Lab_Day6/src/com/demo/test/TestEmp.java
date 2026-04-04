@@ -7,7 +7,7 @@ import com.demo.model.Vendor;
 
 public class TestEmp {
 	public static void main(String[]args) {
-		Employee e=null;
+//		Employee e=null;
 		SalariedEmp se=new SalariedEmp(12,"neha","2334","hr","mgr",12000,2000);
 		System.out.println(se);
 		System.out.println("salary is"+se.calculatesal());
