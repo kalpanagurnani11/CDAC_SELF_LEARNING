@@ -1,11 +1,13 @@
 package com.demo.model;
 
+import java.time.LocalDate;
+
 public class Student {
 
 	private int sid;
 	private String name;
-	private String jdate;
-	private float m1,m2,m3;
+	private LocalDate jdate;
+	private int m1,m2,m3;
 	
 	
 	public Student() {
@@ -13,7 +15,7 @@ public class Student {
 	}
 	
 	
-	public Student(int sid, String name, String jdate, float m1, float m2, float m3) {
+	public Student(int sid, String name, LocalDate jdate, int m1, int m2, int m3) {
 		super();
 		this.sid = sid;
 		this.name = name;
@@ -44,12 +46,12 @@ public class Student {
 	}
 
 
-	public String getJdate() {
+	public LocalDate getJdate() {
 		return jdate;
 	}
 
 
-	public void setJdate(String jdate) {
+	public void setJdate(LocalDate jdate) {
 		this.jdate = jdate;
 	}
 
@@ -59,7 +61,7 @@ public class Student {
 	}
 
 
-	public void setM1(float m1) {
+	public void setM1(int m1) {
 		this.m1 = m1;
 	}
 
@@ -69,7 +71,7 @@ public class Student {
 	}
 
 
-	public void setM2(float m2) {
+	public void setM2(int m2) {
 		this.m2 = m2;
 	}
 
@@ -79,7 +81,7 @@ public class Student {
 	}
 
 
-	public void setM3(float m3) {
+	public void setM3(int m3) {
 		this.m3 = m3;
 	}
 
@@ -89,9 +91,9 @@ public class Student {
 		return "Student [sid=" + sid + ", name=" + name + ", jdate=" + jdate + ", m1=" + m1 + ", m2=" + m2 + ", m3="
 				+ m3 + "]";
 	}
-	
-	
 
+
+	
 
 	
 	
