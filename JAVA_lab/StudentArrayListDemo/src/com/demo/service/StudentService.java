@@ -12,6 +12,16 @@ public interface StudentService {
 
 	boolean deleteById(int id);
 
+	Student findById(int id);
+
+	List<Student> findByName(String nm);
+
+	List<Student> sortById();
+
+	List<Student> sortByName();
+
+	List<Student> sortByMarks();
+
 	
 
 }

@@ -11,8 +11,6 @@ public interface VehicleDao {
 
 	Set<Vehicle> findAll();
 
-
-
 	Vehicle findById(int id);
 
 	List<Vehicle> findByPrice(double price);
@@ -26,5 +24,9 @@ public interface VehicleDao {
 	List<Vehicle> sortByName();
 
 	List<Vehicle> sortByPrice();
+
+	void readFromFile();
+
+	void writeToFile();
 
 }

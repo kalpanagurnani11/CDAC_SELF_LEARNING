@@ -40,14 +40,44 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public List<Student> findAll() {
-		// TODO Auto-generated method stub
+		
 		return sdao.getAll();
 	}
 
 	@Override
 	public boolean deleteById(int id) {
-		// TODO Auto-generated method stub
+		
 		return sdao.removeById(id);
+	}
+
+	@Override
+	public Student findById(int id) {
+		
+		return sdao.findById(id);
+	}
+
+	@Override
+	public List<Student> findByName(String nm) {
+		
+		return sdao.findByName(nm);
+	}
+
+	@Override
+	public List<Student> sortById() {
+		
+		return sdao.sortById();
+	}
+
+	@Override
+	public List<Student> sortByName() {
+		
+		return sdao.sortByName();
+	}
+
+	@Override
+	public List<Student> sortByMarks() {
+		
+		return sdao.sortByMarks();
 	}
 	
 

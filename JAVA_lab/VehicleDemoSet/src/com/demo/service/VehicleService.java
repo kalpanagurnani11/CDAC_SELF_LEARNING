@@ -25,4 +25,8 @@ public interface VehicleService {
 
 	List<Vehicle> sortByPrice();
 
+	List<Vehicle> getByName(String name);
+
+	void writeToFile();
+
 }

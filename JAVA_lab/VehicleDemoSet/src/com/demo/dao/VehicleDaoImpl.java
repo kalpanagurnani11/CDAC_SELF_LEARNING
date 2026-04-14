@@ -1,120 +1,110 @@
 package com.demo.dao;
 
+import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 import com.demo.model.Vehicle;
 
 public class VehicleDaoImpl implements VehicleDao {
-	
-	static Set<Vehicle> vset;
-	static {
-		vset=new HashSet<>();
-		vset.add(new Vehicle(12,"Activa",80000,"5G",LocalDate.of(2026, 12, 1)));
-		vset.add(new Vehicle(13,"Curve",85000,"3G",LocalDate.of(2025, 11, 1)));
-		vset.add(new Vehicle(14,"Dio",75000,"4G",LocalDate.of(2024, 1, 12)));
-	}
 
-	@Override
-	public boolean save(Vehicle vehicle) {
-	
-		return vset.add(vehicle);
-	}
+    static Set<Vehicle> vset;
 
-	@Override
-	public Set<Vehicle> findAll() {
-		
-		return vset;
-	}
+    static {
+        vset = new HashSet<>();
+        vset.add(new Vehicle(12, "Activa", 80000, "5G", LocalDate.of(2026, 12, 1)));
+        vset.add(new Vehicle(13, "Curve", 85000, "3G", LocalDate.of(2025, 11, 1)));
+        vset.add(new Vehicle(14, "Dio", 75000, "4G", LocalDate.of(2024, 1, 12)));
+    }
 
-	@Override
-	public Vehicle findById(int id) {
-		for(Vehicle v:vset)
-		{
-			if(v.getVid()==id)
-			{
-				return v;
-			}
-		}
-		return null;
-	}
+    @Override
+    public boolean save(Vehicle vehicle) {
+        return vset.add(vehicle);
+    }
 
-	@Override
-	public List<Vehicle> findByPrice(double price) {
-		List<Vehicle>lst=vset.stream().filter(v->v.getPrice()>price).toList();
-	 
-		return lst.size()>0?lst:null;
-	
-	
-	}
+    @Override
+    public Set<Vehicle> findAll() {
+        return vset;
+    }
 
-	@Override
-	public boolean deleteById(int id) {
-		for(Vehicle v:vset)
-		{
-			if(v.getVid()==id)
-			{
-				vset.remove(id);
-			}
-		}
-		return false;
-	}
+    @Override
+    public Vehicle findById(int id) {
+        for (Vehicle v : vset) {
+            if (v.getVid() == id) {
+                return v;
+            }
+        }
+        return null;
+    }
 
-	@Override
-	public boolean updateById(int id,double price) {
-		Vehicle v=findById(id);
-		if(v!=null)
-		{
-			v.setPrice(price);
-		}
-		return false;
-	}
+    @Override
+    public List<Vehicle> findByPrice(double price) {
+        List<Vehicle> list = vset.stream()
+                .filter(v -> v.getPrice() > price)
+                .toList();
+        return list.size() > 0 ? list : null;
+    }
 
-	@Override
-	public Set<Vehicle> sortById() {
-		Set<Vehicle>tset=new TreeSet<>();
-		for(Vehicle v:vset)
-		{
-			tset.add(v);
-		}
-		return tset;
-	}
+    @Override
+    public boolean deleteById(int id) {
+        Vehicle v = findById(id);
+        if (v != null) {
+            return vset.remove(v);
+        }
+        return false;
+    }
 
-	@Override
-	public List<Vehicle> sortByName() {
-		Comparator<Vehicle>cv=(o1,o2)->{
-			return o1.getVname().compareTo(o2.getVname());
-			
-		};
-		List<Vehicle>lst=new ArrayList<>();
-		for(Vehicle v:vset)
-		{
-			lst.add(v);
-			
-		}
-		lst.sort(cv);
-		return lst;
-	}
+    @Override
+    public boolean updateById(int id, double price) {
+        Vehicle v = findById(id);
+        if (v != null) {
+            v.setPrice(price);
+            return true;
+        }
+        return false;
+    }
 
-	@Override
-	public List<Vehicle> sortByPrice() {
-		Comparator<Vehicle>cv=(o1,o2)->{
-			return(int)(o1.getPrice()-o2.getPrice());
-			
-		};
-		List<Vehicle>lst=new ArrayList<>();
-		for(Vehicle v:vset)
-		{
-			lst.add(v);
-			
-		}
-		lst.sort(cv);
-		return lst;
-	}
+    @Override
+    public Set<Vehicle> sortById() {
+        Set<Vehicle> tset = new TreeSet<>();
+        tset.addAll(vset);
+        return tset;
+    }
 
+    @Override
+    public List<Vehicle> sortByName() {
+        List<Vehicle> list = new ArrayList<>(vset);
+        list.sort((o1, o2) -> o1.getVname().compareTo(o2.getVname()));
+        return list;
+    }
+
+    @Override
+    public List<Vehicle> sortByPrice() {
+        List<Vehicle> list = new ArrayList<>(vset);
+        list.sort((o1, o2) -> Double.compare(o1.getPrice(), o2.getPrice()));
+        return list;
+    }
+
+    @Override
+    public void writeToFile() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("vehicle.txt"))) {
+            oos.writeObject(vset);
+            System.out.println("Data written using ObjectOutputStream");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void readFromFile() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("vehicle.txt"))) {
+            Object obj = ois.readObject();
+            if (obj instanceof Set) {
+                vset = (Set<Vehicle>) obj;
+            }
+            System.out.println("Data read using ObjectInputStream");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

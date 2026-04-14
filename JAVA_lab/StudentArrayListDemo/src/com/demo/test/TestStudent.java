@@ -16,20 +16,18 @@ public class TestStudent {
 		System.out.println("1.Add Student\n2.Delete By Id\n3.Modify By Id\n4.Display All\n5.Display By Id\n6.Display By name\n7.Sort By Id\n 8.Sort By Name\n9.Sort By m1\n 10.Exit\nEnter Choice:");
 		choice=sc.nextInt();
 		StudentService sservice=new StudentServiceImpl();
-		switch(choice)
-		{
+		switch(choice) {
 		case 1->
 		{
 			boolean status=sservice.addStudent();
 			if(status)
 			{
-				System.out.println("student added");
+				System.out.println("added");
 			}
 			else
 			{
 				System.out.println("not added");
 			}
-			
 			
 		}
 		case 2->
@@ -39,78 +37,79 @@ public class TestStudent {
 			boolean status=sservice.deleteById(id);
 			if(status)
 			{
-				System.out.println("student data deleted");
+				System.out.println("deleted");
 			}
 			else
 			{
 				System.out.println("not deleted");
 			}
-			
-			
 		}
 		case 3->
 		{
-			System.out.println("enter id");
-			int id=sc.nextInt();
-			System.out.println("which marks to update 1.m1\n2.m2\n3.m3");
-			int ch=sc.nextInt();
-			boolean status=sservice.updateById(id);
-			if(status)
-			{
-				System.out.println("student data updated");
-			}
-			else
-			{
-				System.out.println("not updated");
-			}
-			
 			
 		}
-		
 		case 4->
 		{
-			List<Student> slst=sservice.findAll();
-			if(slst!=null)
-			{
-				slst.forEach(System.out::println);
-			}
+			List<Student>vlst=sservice.findAll();
+			vlst.forEach(System.out::println);
+			
+			
 		}
 		case 5->
 		{
+			System.out.println("enter id");
+			int id=sc.nextInt();
+			Student s=sservice.findById(id);
+			if(s!=null)
+			{
+				System.out.println(s);
+			}
+			else {
+				System.out.println("not found");
+			}
 			
 		}
 		case 6->
 		{
-			
+			System.out.println("enter name");
+			String nm=sc.next();
+			List<Student>slst=sservice.findByName(nm);
+			slst.forEach(System.out::println);
 		}
+		
 		case 7->
 		{
+			List<Student>slst=sservice.sortById();
+			slst.forEach(System.out::println);
+			
 			
 		}
 		case 8->
 		{
+			List<Student>slst=sservice.sortByName();
+			slst.forEach(System.out::println);
+			
 			
 		}
 		case 9->
 		{
-			
+			List<Student>slst=sservice.sortByMarks();
+			slst.forEach(System.out::println);
+				
 		}
 		case 10->
 		{
-		sc.close();
-		System.out.println("Thanks");
+			sc.close();
+			System.out.println("thank you");
+			
 		}
 		default->
 		{
 			System.out.println("wrong choice");
 		}
 		}
-		}
-		while (choice!=10);
-		}
 		
+		}
+		while(choice!=10);
+		}
 	}
-	
-	
-
-

@@ -1,8 +1,9 @@
 package com.demo.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Vehicle implements Comparable<Vehicle> {
+public class Vehicle implements Comparable<Vehicle>,Serializable {
 	private int vid;
 	private String vname;
 	private double price;

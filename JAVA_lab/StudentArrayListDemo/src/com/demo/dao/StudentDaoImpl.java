@@ -29,6 +29,45 @@ public class StudentDaoImpl implements StudentDao {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	@Override
+	public Student findById(int id) {
+		for(Student s:slist)
+		{
+			if(s.getSid()==id)
+			{
+				return s;
+			}
+		}
+		return null;
+	}
+	@Override
+	public List<Student> findByName(String nm) {
+		List<Student> ns=new ArrayList<>();
+		for(Student s:slist)
+		{
+			if(s.getName().equals(nm))
+			{
+				ns.add(s);
+			}
+		
+		}
+		return ns;
+	}
+	@Override
+	public List<Student> sortById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<Student> sortByName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<Student> sortByMarks() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 	
