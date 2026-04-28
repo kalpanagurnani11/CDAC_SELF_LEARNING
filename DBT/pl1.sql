@@ -262,12 +262,6 @@ BEGIN
 end $
 delimiter ;
 
-
-*/
-
-
-
-
 drop procedure if exists pro1;
 delimiter $
 create procedure pro1(in idname varchar(29))
@@ -295,6 +289,21 @@ end $
 delimiter ;
 
 
+
+
+
+
+
+
+*/
+drop function if exists fn1;
+delimiter $
+create function fn1() returns varchar(20)
+deterministic
+BEGIN
+	return "Hello World";
+end $
+delimiter ;
 
 
 

@@ -1,6 +1,7 @@
 package com.demo.searches;
 
 public class countingSort {
+	
 	public static countingSort(int[] arr)
 	{
 	//find max
